@@ -1,33 +1,149 @@
-@import url('https://fonts.googleapis.com/css?family=Comic+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500&display=swap');
+
 body {
-    text-align: center;
-    max-width: 100vw;
-    background: rgb(230, 234, 247);
-}
-#container {
-   font-family: 'Comic Neue','Courier New', monospace;
-   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: midnightblue;
-}
-footer {
-    letter-spacing: 1px;
-    color: rgb(179, 106, 16);
-}
-#issMap {
-    height: 80vh; 
-    width: 80vw;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inconsolata','Courier New', monospace;
+  font-size: 1.2em;
+  font-weight: 500;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(5,1,24,1) 0%, rgba(4,21,57,1) 100%);
+  background-image: url('https://images.unsplash.com/photo-1435224668334-0f82ec57b605?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80');
+  background-size: cover;
+  background-blend-mode: overlay;
 }
 
-@media screen and (max-width: 768px){
-    body {font-size: 0.8em}
-    #issMap {
-        height: 80vh; 
-        width: 95vw;
-    }
-    p{
-        margin-top:0;
-    }
+h3 {
+  color: #6682dc;
+  letter-spacing: 2px;
+  margin-top: 2em;
+  background-color: #000;
+  padding: 0.5em 2em;
+  display: inline-block;
+  line-height: 1.5em;
+}
+
+h3 > span {
+  color: #269baf;
+}
+
+h3 > span:after {
+  content: "°";
+}
+
+p {
+  color: rgb(197, 203, 220);
+  font-size: 0.7em;
+  letter-spacing: 1px
+}
+
+#issMap {
+  z-index: 1;
+  margin-top: 2em;
+  height: 70vh;
+  max-width: 500px;
+  width: 60vw;
+  max-width: 700px;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #03203f, 0 0 40px #12c8d8;
+}
+
+#star-cont {
+  position: relative;
+  transform: rotateZ(45deg);
+}
+
+#shooting-star {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(-45deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px rgba(105, 155, 255, 1));
+  animation: tail 10s ease-in-out infinite, shoot 10s ease-in-out infinite;
+}
+
+@keyframes tail {
+  0% {
+    width: 0;
+  }
+
+  30% {
+    width: 100px;
+  }
+
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(-1000px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(1000px);
+  }
+}
+
+#ufo {
+  position: absolute;
+  right: 20%;
+  bottom: 0;
+  width: 5em;
+  height: 5em;
+  content: url(ufo.png);
+  z-index: 2;
+  animation: flight 20s cubic-bezier(.60,.30,.17,.34) 5s infinite;
+  opacity: 0;
+}
+
+@keyframes flight {
+  0% {
+    opacity: 1;
+    transform: translateY(100px) translateX(0);
+  }
+ 
+  40% {
+    opacity: 1;
+    transform: translateY(-700px) translateX(200px) rotate(-50deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-700px) translateX(-900px) rotate(-20deg);
+  }
+  100% {
+    transform: translateY(200px)  translateX(-800px) ;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.8em;
+    background: #070221;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  #issMap {
+    height: 50vh;
+    width: 95vw;
+  }
+  #star-cont {
+    display: none
+  }
+  #ufo {
+    display: none
+  }
 }
