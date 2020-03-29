@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Comic+Neue&display=swap');
+body {
+    text-align: center;
+    max-width: 100vw;
+    background: rgb(230, 234, 247);
+}
+#container {
+   font-family: 'Comic Neue','Courier New', monospace;
+   position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: midnightblue;
+}
+footer {
+    letter-spacing: 1px;
+    color: rgb(179, 106, 16);
+}
+#issMap {
+    height: 80vh; 
+    width: 80vw;
+}
+
+@media screen and (max-width: 768px){
+    body {font-size: 0.8em}
+    #issMap {
+        height: 80vh; 
+        width: 95vw;
+    }
+    p{
+        margin-top:0;
+    }
+}
